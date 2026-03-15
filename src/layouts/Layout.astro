@@ -11,12 +11,12 @@ const { title = 'Onyx Corporation' } = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/images/Onyx_favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <title>{title}</title>
   </head>
   <body
-    x-data="{ lang: localStorage.getItem('lang') || 'en', mobileOpen: false, t(en, ru) { return this.lang === 'en' ? en : ru } }" x-init="$watch('lang', val => localStorage.setItem('lang', val))"
+    x-data="{ lang: 'en', mobileOpen: false, t(en, ru) { return this.lang === 'en' ? en : ru } }"
     class="bg-[#e8ecf0] text-[#1a1a2e] overflow-x-hidden"
   >
 
