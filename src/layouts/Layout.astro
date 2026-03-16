@@ -16,7 +16,7 @@ const { title = 'Onyx Corporation' } = Astro.props
     <title>{title}</title>
   </head>
   <body
-    x-data="{ lang: 'en', mobileOpen: false, t(en, ru) { return this.lang === 'en' ? en : ru } }"
+    x-data="{ lang: localStorage.getItem('lang') || 'en', mobileOpen: false, t(en, ru) { return this.lang === 'en' ? en : ru } }"
     class="bg-[#e8ecf0] text-[#1a1a2e] overflow-x-hidden"
   >
 
@@ -50,12 +50,12 @@ const { title = 'Onyx Corporation' } = Astro.props
             <button
               class="text-xs font-medium tracking-widest px-2.5 py-1 rounded cursor-pointer transition-all duration-200"
               :class="lang === 'en' ? 'text-white bg-white/10' : 'text-white/50'"
-              @click="lang = 'en'"
+              @click="lang = 'en'; localStorage.setItem('lang', 'en')"
             >EN</button>
             <button
               class="text-xs font-medium tracking-widest px-2.5 py-1 rounded cursor-pointer transition-all duration-200"
               :class="lang === 'ru' ? 'text-white bg-white/10' : 'text-white/50'"
-              @click="lang = 'ru'"
+              @click="lang = 'ru'; localStorage.setItem('lang', 'ru')"
             >RU</button>
           </div>
 
