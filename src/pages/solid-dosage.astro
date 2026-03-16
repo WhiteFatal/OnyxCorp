@@ -38,147 +38,99 @@ import Layout from '../layouts/Layout.astro'
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-        <!-- Amoxicillin -->
+        <!-- Prostazolin / Простазолин -->
         <div class="product-card">
           <div class="product-image-placeholder" style="background: #e8f0fe">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(27,42,107,0.1)">
-                <svg class="w-8 h-8" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase" style="color: var(--navy); opacity: 0.5" x-text="t('Capsule', 'Капсула')"></p>
-            </div>
+            <img src="/medicines/Простазолин.jpg" alt="Простазолин"/>
           </div>
           <div class="p-5">
-            <h3 class="text-lg serif font-semibold mb-2" style="color: var(--navy)" x-text="t('Amoxicillin 500mg', 'Амоксициллин 500мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Broad-spectrum antibiotic capsule for bacterial infections of ear, throat, skin and urinary tract.', 'Антибиотик широкого спектра в капсулах для инфекций уха, горла, кожи и мочевыводящих путей.')"></p>
+            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Prostazolin', 'Простазолин')"></h2>
+            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Tamsulosin HCl 0.4mg + Dutasteride 0.5mg', 'Тамсулозина гидрохлорид 0,4мг + Дутастерид 0,5мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Combined alpha-blocker and 5-alpha-reductase inhibitor capsules for benign prostatic hyperplasia. 30 capsules.', 'Комбинированные капсулы альфа-блокатора и ингибитора 5-альфа-редуктазы при доброкачественной гиперплазии предстательной железы. 30 капсул.')"></p>
           </div>
         </div>
 
-        <!-- Metformin -->
+        <!-- Tilorsin / Тилорсин -->
         <div class="product-card">
           <div class="product-image-placeholder" style="background: #fef3e2">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(27,42,107,0.1)">
-                <svg class="w-8 h-8" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase" style="color: var(--navy); opacity: 0.5" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
+            <img src="/medicines/Тилорсин.jpg" alt="Тилорсин"/>
           </div>
           <div class="p-5">
-            <h3 class="text-lg serif font-semibold mb-2" style="color: var(--navy)" x-text="t('Metformin 850mg', 'Метформин 850мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('First-line tablet for type 2 diabetes. Controls blood sugar levels alongside diet and exercise.', 'Таблетка первой линии при диабете 2 типа. Контролирует уровень сахара в крови.')"></p>
+            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Tilorsin', 'Тилорсин')"></h2>
+            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Tilorone 125mg', 'Тилорон 125мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Antiviral and immunomodulatory capsules for treatment and prevention of influenza and other viral infections. 10 capsules.', 'Противовирусные и иммуномодулирующие капсулы для лечения и профилактики гриппа и других вирусных инфекций. 10 капсул.')"></p>
           </div>
         </div>
 
-        <!-- Omeprazole -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #e8f8f0">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(27,42,107,0.1)">
-                <svg class="w-8 h-8" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase" style="color: var(--navy); opacity: 0.5" x-text="t('Capsule', 'Капсула')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg serif font-semibold mb-2" style="color: var(--navy)" x-text="t('Omeprazole 20mg', 'Омепразол 20мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Proton pump inhibitor capsule for stomach ulcers and gastroesophageal reflux disease.', 'Капсула ингибитора протонной помпы для лечения язвы желудка и ГЭРБ.')"></p>
-          </div>
-        </div>
-
-        <!-- Atorvastatin -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #fce8e8">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(27,42,107,0.1)">
-                <svg class="w-8 h-8" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase" style="color: var(--navy); opacity: 0.5" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg serif font-semibold mb-2" style="color: var(--navy)" x-text="t('Atorvastatin 20mg', 'Аторвастатин 20мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Statin tablet to prevent cardiovascular disease and lower LDL cholesterol levels.', 'Статиновая таблетка для профилактики сердечно-сосудистых заболеваний и снижения ЛПНП.')"></p>
-          </div>
-        </div>
-
-        <!-- Amlodipine -->
+        <!-- Betropil / Бетропил -->
         <div class="product-card">
           <div class="product-image-placeholder" style="background: #e8f0fe">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(27,42,107,0.1)">
-                <svg class="w-8 h-8" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase" style="color: var(--navy); opacity: 0.5" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
+            <img src="/medicines/Бетропил.jpg" alt="Бетропил"/>
           </div>
           <div class="p-5">
-            <h3 class="text-lg serif font-semibold mb-2" style="color: var(--navy)" x-text="t('Amlodipine 5mg', 'Амлодипин 5мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Calcium channel blocker tablet for high blood pressure and chest pain management.', 'Таблетка блокатора кальциевых каналов для лечения гипертонии и стенокардии.')"></p>
+            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Betropil', 'Бетропил')"></h2>
+            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Capsules for oral use', 'Капсулы для приёма внутрь')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Nootropic and neuroprotective capsules supporting cerebral circulation and cognitive function. 20 capsules.', 'Ноотропные и нейропротекторные капсулы для поддержки мозгового кровообращения и когнитивных функций. 20 капсул.')"></p>
           </div>
         </div>
 
-        <!-- Pantoprazole -->
+        <!-- Bionefron / Бионефрон -->
         <div class="product-card">
           <div class="product-image-placeholder" style="background: #e8f8f0">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(27,42,107,0.1)">
-                <svg class="w-8 h-8" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase" style="color: var(--navy); opacity: 0.5" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
+            <img src="/medicines/Бионефрон.jpg" alt="Бионефрон"/>
           </div>
           <div class="p-5">
-            <h3 class="text-lg serif font-semibold mb-2" style="color: var(--navy)" x-text="t('Pantoprazole 40mg', 'Пантопразол 40мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Proton pump inhibitor tablet for erosive esophagitis and excess gastric acid conditions.', 'Таблетка ингибитора протонной помпы для эрозивного эзофагита.')"></p>
+            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Bionefron', 'Бионефрон')"></h2>
+            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Centaury + Rosemary + Lovage root', 'Золототысячник + Розмарин + Корень любистка')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Herbal capsules with centaury herb, rosemary officinalis and lovage root for urinary tract support. 60 capsules.', 'Растительные капсулы с золототысячником, розмарином и корнем любистка для поддержки мочевыводящих путей. 60 капсул.')"></p>
           </div>
         </div>
 
-        <!-- Metronidazole -->
+        <!-- Duobrain / Дуобрейн -->
         <div class="product-card">
-          <div class="product-image-placeholder" style="background: #fff8e1">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(27,42,107,0.1)">
-                <svg class="w-8 h-8" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase" style="color: var(--navy); opacity: 0.5" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
+          <div class="product-image-placeholder" style="background: #e8f0fe">
+            <img src="/medicines/Дуобрейн.jpg" alt="Дуобрейн"/>
           </div>
           <div class="p-5">
-            <h3 class="text-lg serif font-semibold mb-2" style="color: var(--navy)" x-text="t('Metronidazole 250mg', 'Метронидазол 250мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Antibiotic and antiprotozoal tablet for anaerobic bacterial and parasitic infections.', 'Антибактериальная и антипаразитарная таблетка для лечения анаэробных инфекций.')"></p>
+            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Duobrain', 'Дуобрейн')"></h2>
+            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Meldonium 250mg + Ethylmethylhydroxypyridine succinate 250mg', 'Мелдоний 250мг + Этилметилгидроксипиридина сукцинат 250мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Combined neuroprotective and antioxidant capsules for cerebrovascular disorders and cognitive support. 20 capsules.', 'Комбинированные нейропротекторные и антиоксидантные капсулы при цереброваскулярных расстройствах. 20 капсул.')"></p>
           </div>
         </div>
 
-        <!-- Ibuprofen -->
+        <!-- Mildargin / Милдаргин -->
+        <div class="product-card">
+          <div class="product-image-placeholder" style="background: #f0e8fe">
+            <img src="/medicines/Милдаргин.jpg" alt="Милдаргин"/>
+          </div>
+          <div class="p-5">
+            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Mildargin', 'Милдаргин')"></h2>
+            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Meldonium + Arginine hydrochloride', 'Мелдоний + Аргинина гидрохлорид')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Combined cardioprotective capsules with meldonium and arginine for cardiovascular and metabolic support. 20 capsules.', 'Комбинированные кардиопротекторные капсулы с мелдонием и аргинином для сердечно-сосудистой и метаболической поддержки. 20 капсул.')"></p>
+          </div>
+        </div>
+
+        <!-- Mildrocard / Милдрокард -->
+        <div class="product-card">
+          <div class="product-image-placeholder" style="background: #fef3e2">
+            <img src="/medicines/Милдрокард.jpg" alt="Милдрокард"/>
+          </div>
+          <div class="p-5">
+            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Mildrocard', 'Милдрокард')"></h2>
+            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Meldonium 250mg', 'Мелдоний 250мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Cardioprotective capsules with meldonium for ischemic heart disease, chronic heart failure and reduced exercise tolerance. 40 capsules.', 'Кардиопротекторные капсулы с мелдонием при ишемической болезни сердца, хронической сердечной недостаточности и сниженной толерантности к нагрузкам. 40 капсул.')"></p>
+          </div>
+        </div>
+
+        <!-- Nucleodin / Нуклеодин -->
         <div class="product-card">
           <div class="product-image-placeholder" style="background: #fce8e8">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: rgba(27,42,107,0.1)">
-                <svg class="w-8 h-8" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase" style="color: var(--navy); opacity: 0.5" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
+            <img src="/medicines/Нуклеодин.jpg" alt="Нуклеодин"/>
           </div>
           <div class="p-5">
-            <h3 class="text-lg serif font-semibold mb-2" style="color: var(--navy)" x-text="t('Ibuprofen 400mg', 'Ибупрофен 400мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Non-steroidal anti-inflammatory tablet for pain, fever, and inflammatory conditions.', 'НПВП таблетка для лечения боли, жара и воспалительных состояний.')"></p>
+            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Nucleodin', 'Нуклеодин')"></h2>
+            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Riboflavin-5-phosphate + Uridine-5-phosphate complex', 'Рибофлавин-5-фосфат + Уридин-5-фосфат комплекс')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Neuroprotective capsules with nucleotide complex supporting nerve cell regeneration and peripheral neuropathy treatment. 30 capsules.', 'Нейропротекторные капсулы с нуклеотидным комплексом для поддержки регенерации нервных клеток и лечения периферической нейропатии. 30 капсул.')"></p>
           </div>
         </div>
 
