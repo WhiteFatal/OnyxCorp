@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { getProductsByCategory, imageUrl } from '../lib/sanity.js'
+
+const products = await getProductsByCategory('injectables')
 ---
 
 <Layout title="Injectable Solutions — Onyx Corporation">
@@ -15,7 +18,8 @@ import Layout from '../layouts/Layout.astro'
     .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(27,42,107,0.15); border-color: var(--navy); }
     .product-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--navy), var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
     .product-card:hover::before { transform: scaleX(1); }
-    .product-image-placeholder { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; }
+    .product-image-placeholder { width: 100%; height: 220px; display: flex; align-items: center; justify-content: center; padding: 3px; box-sizing: border-box; }
+    .product-image-placeholder img { max-width: 100%; max-height: 196px; width: auto; height: auto; display: block; }
   </style>
 
   <!-- PAGE HERO -->
@@ -38,101 +42,38 @@ import Layout from '../layouts/Layout.astro'
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-        <!-- Batferon / Батферон -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #f0e8fe">
-            <img src="/medicines/Батферон.jpg" alt="Батферон"/>
+        {products.map((product) => (
+          <div class="product-card">
+            <div class="product-image-placeholder" style="background: #e8f0fe">
+              {product.photo && (
+                <img
+                  src={imageUrl(product.photo).url()}
+                  alt={product.nameEn}
+                  
+                />
+              )}
+            </div>
+            <div class="p-5">
+              <h2
+                class="text-xl serif font-bold mb-1"
+                style="color: var(--navy-dark)"
+                x-data={`{nameEn: ${JSON.stringify(product.nameEn)}, nameRu: ${JSON.stringify(product.nameRu)}}`}
+                x-text="t(nameEn, nameRu)"
+              ></h2>
+              <h3
+                class="text-sm serif font-semibold mb-2"
+                style="color: var(--accent)"
+                x-data={`{enVal: ${JSON.stringify(product.activeIngredientEn)}, ruVal: ${JSON.stringify(product.activeIngredientRu)}}`}
+                x-text="t(enVal, ruVal)"
+              ></h3>
+              <p
+                class="text-gray-700 text-sm font-light leading-relaxed"
+                x-data={`{enVal: ${JSON.stringify(product.descriptionEn)}, ruVal: ${JSON.stringify(product.descriptionRu)}}`}
+                x-text="t(enVal, ruVal)"
+              ></p>
+            </div>
           </div>
-          <div class="p-5">
-            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Batferon', 'Батферон')"></h2>
-            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Meglumine Acridonacetate 250mg/2ml', 'Меглумина акридонацетат 250мг/2мл')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Antiviral and immunomodulatory solution in 5 ampoules of 2ml for IV/IM injection.', 'Противовирусный и иммуномодулирующий раствор, 5 ампул по 2 мл для в/в и в/м введения.')"></p>
-          </div>
-        </div>
-
-        <!-- Bioflex-Dual / Биофлекс-Дуал -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #f0e8fe">
-            <img src="/medicines/Биофлекс-Дуал.jpg" alt="Биофлекс-Дуал"/>
-          </div>
-          <div class="p-5">
-            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Bioflex-Dual', 'Биофлекс-Дуал')"></h2>
-            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Dual-Ampoule Solution', 'Раствор в двойных ампулах')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Anti-inflammatory, analgesic and anticonvulsant dual-ampoule solution: 3 ampoules A (2ml) + 3 ampoules B (1ml) for IM injection.', 'Противовоспалительное, анальгетическое и противосудорожное средство: 3 ампулы А (2мл) + 3 ампулы Б (1мл) для в/м введения.')"></p>
-          </div>
-        </div>
-
-        <!-- Blockavit B-12 / Блокавит Б-12 -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #e8f0fe">
-            <img src="/medicines/Блокавит Б-12.jpg" alt="Блокавит Б-12"/>
-          </div>
-          <div class="p-5">
-            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Blockavit B-12', 'Блокавит Б-12')"></h2>
-            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Betamethasone + Diclofenac + Vitamin B12 / 3ml', 'Бетаметазон + Диклофенак + Витамин B12 / 3мл')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Combined corticosteroid, NSAID and vitamin B12 solution. 6 ampoules of 3ml for IM injection.', 'Комбинированный раствор кортикостероида, НПВП и витамина B12. 6 ампул по 3 мл для в/м введения.')"></p>
-          </div>
-        </div>
-
-        <!-- Dicortan / Дикортан -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #fef3e2">
-            <img src="/medicines/Дикортан.jpg" alt="Дикортан"/>
-          </div>
-          <div class="p-5">
-            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Dicortan', 'Дикортан')"></h2>
-            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Betamethasone + Diclofenac + Vitamin B12 / 3ml', 'Бетаметазон + Диклофенак + Витамин B12 / 3мл')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Combined corticosteroid, NSAID and vitamin B12 solution. 3 ampoules of 3ml for IM injection, sterile.', 'Комбинированный раствор кортикостероида, НПВП и витамина B12. 3 ампулы по 3 мл для в/м введения, стерильный.')"></p>
-          </div>
-        </div>
-
-        <!-- Lambene / Ламбене -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #e8f8f0">
-            <img src="/medicines/Ламбене.jpg" alt="Ламбене"/>
-          </div>
-          <div class="p-5">
-            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Lambene', 'Ламбене')"></h2>
-            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Double Ampoules', 'Двойные ампулы')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Anti-inflammatory, analgesic and anticonvulsant dual-ampoule solution: 3 ampoules A (2ml) + 3 ampoules B (1ml) for IM injection, sterile.', 'Противовоспалительное, анальгетическое и противосудорожное средство: 3 ампулы А (2мл) + 3 ампулы Б (1мл) для в/м введения, стерильный.')"></p>
-          </div>
-        </div>
-
-        <!-- Maxiferon / Максиферон -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #fce8e8">
-            <img src="/medicines/Максиферон.jpg" alt="Максиферон"/>
-          </div>
-          <div class="p-5">
-            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Maxiferon', 'Максиферон')"></h2>
-            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Meglumine Acridonacetate 12.5% / 2ml', 'Меглумина акридонацетат 12,5% / 2мл')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Antiviral and immunomodulatory 12.5% solution. 5 ampoules of 2ml for IV/IM injection, sterile and apyrogenic.', 'Противовирусный и иммуномодулирующий раствор 12,5%. 5 ампул по 2 мл для в/в и в/м введения, стерильный, апирогенный.')"></p>
-          </div>
-        </div>
-
-        <!-- Speyferon / Спейферон -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #e8f8f0">
-            <img src="/medicines/Спейферон.jpg" alt="Спейферон"/>
-          </div>
-          <div class="p-5">
-            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Speyferon', 'Спейферон')"></h2>
-            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Meglumine Acridonacetate 12.5% / 2ml', 'Меглумина акридонацетат 12,5% / 2мл')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Antiviral and immunomodulatory 12.5% solution. 5 ampoules of 2ml for IV/IM injection, sterile.', 'Противовирусный и иммуномодулирующий раствор 12,5%. 5 ампул по 2 мл для в/в и в/м введения, стерильный.')"></p>
-          </div>
-        </div>
-
-        <!-- Ticiron / Тицирон -->
-        <div class="product-card">
-          <div class="product-image-placeholder" style="background: #fff8e1">
-            <img src="/medicines/Тицирон.jpg" alt="Тицирон"/>
-          </div>
-          <div class="p-5">
-            <h2 class="text-xl serif font-bold mb-1" style="color: var(--navy-dark)" x-text="t('Ticiron', 'Тицирон')"></h2>
-            <h3 class="text-sm serif font-semibold mb-2" style="color: var(--accent)" x-text="t('Meglumine Acridonacetate (Neovir)', 'Меглумина акридонацетат (Неовир)')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Antiviral and immunomodulatory injectable solution. Sterile ampoules for IV/IM use.', 'Противовирусный и иммуномодулирующий инъекционный раствор. Стерильные ампулы для в/в и в/м введения.')"></p>
-          </div>
-        </div>
+        ))}
 
       </div>
     </div>
