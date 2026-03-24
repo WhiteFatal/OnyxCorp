@@ -17,13 +17,11 @@ const { title = 'Onyx Corporation' } = Astro.props
   </head>
   <body
     x-data="{ lang: localStorage.getItem('lang') || 'en', mobileOpen: false, t(en, ru) { return this.lang === 'en' ? en : ru } }"
-    class="bg-[#e8ecf0] text-[#1a1a2e] overflow-x-hidden"
+    class="bg-[#e8ecf0] text-navy-dark overflow-x-hidden font-sans"
   >
 
     <!-- NAVBAR -->
-    <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-[#1B2A6B]/97 backdrop-blur-md border-b border-white/10"
-    >
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-navy/97 backdrop-blur-md border-b border-white/10">
       <div class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
 
         <!-- Logo -->
@@ -31,7 +29,8 @@ const { title = 'Onyx Corporation' } = Astro.props
           <img
             src="/images/Onyx_Transparent.png"
             alt="Onyx Corporation"
-            style="height: 100px; width: auto; mix-blend-mode: screen;"
+            class="h-24 w-auto"
+            style="mix-blend-mode: screen;"
           />
         </a>
 
@@ -62,8 +61,7 @@ const { title = 'Onyx Corporation' } = Astro.props
           <!-- CTA button -->
           <a
             href="/#contact"
-            class="hidden md:inline-block text-sm font-normal tracking-widest uppercase text-white py-2 px-5 rounded-lg transition-all duration-300 hover:-translate-y-0.5"
-            style="background: linear-gradient(135deg, #4a90d9, #2563eb);"
+            class="hidden md:inline-block text-sm font-normal tracking-widest uppercase text-white py-2 px-5 rounded-lg bg-gradient-to-br from-accent to-blue-600 transition-all duration-300 hover:-translate-y-0.5"
             x-text="t('Get in Touch', 'Связаться')"
           ></a>
 
@@ -89,7 +87,7 @@ const { title = 'Onyx Corporation' } = Astro.props
     <slot />
 
     <!-- FOOTER -->
-    <footer class="py-10 bg-[#111d4e] border-t border-white/10">
+    <footer class="py-10 bg-navy-dark border-t border-white/10">
       <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <p class="text-slate-100/25 text-xs text-center">© 2025 Onyx Corporation Ltd. All rights reserved.</p>
         <div class="flex gap-6">
@@ -105,13 +103,6 @@ const { title = 'Onyx Corporation' } = Astro.props
       ;(window as any).Alpine = Alpine
       Alpine.start()
     </script>
-
-    <style is:global>
-      [x-cloak] { display: none !important; }
-      html { scroll-behavior: smooth; }
-      body { font-family: 'DM Sans', sans-serif; }
-      h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
-    </style>
 
   </body>
 </html>

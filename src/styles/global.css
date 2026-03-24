@@ -1,1 +1,257 @@
 @import "tailwindcss";
+
+/* ============================================================
+   THEME TOKENS
+   Define once, use everywhere as Tailwind classes:
+   text-navy, bg-navy-dark, text-accent, font-serif, etc.
+   ============================================================ */
+@theme {
+  --color-navy:       #1B2A6B;
+  --color-navy-dark:  #111d4e;
+  --color-navy-light: #2a3d8f;
+  --color-accent:     #4a90d9;
+  --color-silver:     #c8d0e0;
+
+  --font-sans:  'DM Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .serif {
+  font-family: var(--font-serif);
+}
+
+[x-cloak] { display: none !important; }
+
+section { scroll-margin-top: 110px; }
+
+/* ============================================================
+   PAGE HERO
+   Used on every product category page.
+   The ::before creates the subtle grid background pattern —
+   not possible with Tailwind utilities alone.
+   ============================================================ */
+.page-hero {
+  background: linear-gradient(
+    135deg,
+    var(--color-navy-dark) 0%,
+    var(--color-navy) 60%,
+    var(--color-navy-light) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 80px;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================================
+   PRODUCT CARD
+   Used on every product category page.
+   The ::before creates the animated gradient top border on
+   hover — requires pseudo-element, not possible with Tailwind.
+   ============================================================ */
+.product-card {
+  background: #dde2e8;
+  border: 1px solid #c8d0da;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(27, 42, 107, 0.15);
+  border-color: var(--color-navy);
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-navy), var(--color-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.product-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   PRODUCT IMAGE PLACEHOLDER
+   Used on every product category page.
+   Fixed height container that centers the product photo.
+   ============================================================ */
+.product-image-placeholder {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.product-image-placeholder img {
+  max-width: 100%;
+  max-height: 214px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   INDEX PAGE — HERO SECTION
+   Complex decorative elements using pseudo-elements and
+   radial gradients — not possible with Tailwind utilities.
+   ============================================================ */
+.hero {
+  min-height: calc(100vh - 104px);
+  margin-top: 104px;
+  background: linear-gradient(
+    135deg,
+    var(--color-navy-dark) 0%,
+    var(--color-navy) 50%,
+    var(--color-navy-light) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(74,144,217,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(200,208,224,0.08) 0%, transparent 50%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-orb {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(74,144,217,0.12) 0%,
+    rgba(27,42,107,0.05) 60%,
+    transparent 80%
+  );
+  border: 1px solid rgba(255,255,255,0.06);
+  max-width: 80vw;
+  max-height: 80vw;
+}
+
+.hero-orb::before {
+  content: '';
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.hero-orb::after {
+  content: '';
+  position: absolute;
+  inset: 120px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ============================================================
+   INDEX PAGE — ABOUT SECTION
+   Decorative radial gradient orb via ::before.
+   ============================================================ */
+.about-section {
+  background: linear-gradient(160deg, #dde2e8 0%, #d0d6de 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  right: -200px;
+  top: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,42,107,0.04) 0%, transparent 70%);
+}
+
+/* ============================================================
+   INDEX PAGE — CONTACT SECTION
+   Grid pattern overlay via ::before.
+   ============================================================ */
+.contact-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-navy-dark) 0%,
+    var(--color-navy) 100%
+  );
+  position: relative;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ============================================================
+   INDEX PAGE — ANIMATIONS
+   Keyframe animations cannot be expressed with Tailwind
+   utility classes alone.
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fadeUp 0.8s ease forwards; }
+.delay-1 { animation-delay: 0.15s; opacity: 0; }
+.delay-2 { animation-delay: 0.30s; opacity: 0; }
+.delay-3 { animation-delay: 0.45s; opacity: 0; }
+.delay-4 { animation-delay: 0.60s; opacity: 0; }
