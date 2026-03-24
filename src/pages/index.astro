@@ -4,220 +4,6 @@ import Layout from '../layouts/Layout.astro'
 
 <Layout title="Onyx Corporation — Pharmaceutical Manufacturing">
 
-  <style is:global>
-    :root {
-      --navy: #1B2A6B;
-      --navy-dark: #111d4e;
-      --navy-light: #2a3d8f;
-      --silver: #c8d0e0;
-      --accent: #4a90d9;
-    }
-
-    section { scroll-margin-top: 110px; }
-
-    .hero {
-      min-height: calc(100vh - 104px);
-      margin-top: 104px;
-      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
-      position: relative;
-      overflow: hidden;
-      max-width: 100vw;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 70% 50%, rgba(74, 144, 217, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 20% 80%, rgba(200, 208, 224, 0.08) 0%, transparent 50%);
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .hero-orb {
-      position: absolute;
-      right: -100px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(74,144,217,0.12) 0%, rgba(27,42,107,0.05) 60%, transparent 80%);
-      border: 1px solid rgba(255,255,255,0.06);
-      max-width: 80vw;
-      max-height: 80vw;
-    }
-
-    .hero-orb::before {
-      content: '';
-      position: absolute;
-      inset: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .hero-orb::after {
-      content: '';
-      position: absolute;
-      inset: 120px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .stat-card {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-    }
-
-    .stat-card:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .product-card {
-      border: 1px solid #e2e8f0;
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--navy), var(--accent));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-
-    .product-card:hover {
-      border-color: var(--navy);
-      box-shadow: 0 20px 40px rgba(27, 42, 107, 0.12);
-      transform: translateY(-4px);
-    }
-
-    .product-card:hover::before { transform: scaleX(1); }
-
-    .product-icon {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, #eef2ff, #dbeafe);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-section {
-      background: linear-gradient(160deg, #dde2e8 0%, #d0d6de 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-section::before {
-      content: '';
-      position: absolute;
-      right: -200px;
-      top: -200px;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(27,42,107,0.04) 0%, transparent 70%);
-    }
-
-    .value-item {
-      border-left: 2px solid var(--navy);
-      padding-left: 1.25rem;
-    }
-
-    .contact-section {
-      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
-      position: relative;
-    }
-
-    .contact-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #2563eb);
-      color: white;
-      padding: 0.9rem 2.5rem;
-      border-radius: 8px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(74, 144, 217, 0.4);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.3);
-      color: white;
-      padding: 0.9rem 2.5rem;
-      border-radius: 8px;
-      font-weight: 400;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.5);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-up { animation: fadeUp 0.8s ease forwards; }
-    .delay-1 { animation-delay: 0.15s; opacity: 0; }
-    .delay-2 { animation-delay: 0.3s; opacity: 0; }
-    .delay-3 { animation-delay: 0.45s; opacity: 0; }
-    .delay-4 { animation-delay: 0.6s; opacity: 0; }
-  </style>
-
   <!-- HERO -->
   <section class="hero flex items-center">
     <div class="hero-grid"></div>
@@ -225,12 +11,14 @@ import Layout from '../layouts/Layout.astro'
 
     <div class="max-w-7xl mx-auto px-6 pt-28 pb-24 relative z-10 w-full">
       <div class="max-w-2xl">
-        <p class="section-label fade-up mb-6" x-text="t('Pharmaceutical Manufacturing', 'Фармацевтическое производство')"></p>
 
-        <h1 class="fade-up delay-1 text-5xl md:text-6xl lg:text-7xl font-light text-slate-100 leading-tight mb-6">
+        <p class="fade-up text-[0.7rem] font-medium tracking-[0.25em] uppercase text-accent mb-6"
+           x-text="t('Pharmaceutical Manufacturing', 'Фармацевтическое производство')"></p>
+
+        <h1 class="fade-up delay-1 text-5xl md:text-6xl lg:text-7xl font-light text-slate-100 font-serif leading-tight mb-6">
           <span x-text="t('Advancing', 'Качество')"></span><br>
           <span class="font-semibold" x-text="t('Healthcare', 'на каждом')"></span><br>
-          <span style="color: var(--silver);" x-text="t('Worldwide', 'этапе')"></span>
+          <span class="text-silver" x-text="t('Worldwide', 'этапе')"></span>
         </h1>
 
         <p class="fade-up delay-2 text-slate-100/60 text-lg font-light leading-relaxed mb-10 max-w-xl"
@@ -241,34 +29,40 @@ import Layout from '../layouts/Layout.astro'
         </p>
 
         <div class="fade-up delay-3 flex flex-wrap gap-4">
-          <a href="#products" class="btn-primary" x-text="t('Explore Products', 'Каталог продуктов')"></a>
-          <a href="#contact" class="btn-outline" x-text="t('Partner With Us', 'Стать партнёром')"></a>
+          <a href="#products"
+             class="bg-gradient-to-br from-accent to-blue-600 text-white py-[0.9rem] px-10 rounded-lg font-medium text-[0.9rem] tracking-[0.05em] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(74,144,217,0.4)] no-underline"
+             x-text="t('Explore Products', 'Каталог продуктов')"></a>
+          <a href="#contact"
+             class="border border-white/30 text-white py-[0.9rem] px-10 rounded-lg font-normal text-[0.9rem] tracking-[0.05em] bg-transparent transition-all duration-300 hover:bg-white/[0.08] hover:border-white/50 no-underline"
+             x-text="t('Partner With Us', 'Стать партнёром')"></a>
         </div>
 
         <div class="fade-up delay-4 grid grid-cols-3 gap-4 mt-16">
-          <div class="stat-card rounded-xl p-5">
-            <div class="text-3xl font-light text-slate-100 serif mb-1">200+</div>
+          <div class="border border-white/10 bg-white/[0.04] backdrop-blur-[8px] transition-all duration-300 hover:bg-white/[0.08] hover:border-white/20 hover:-translate-y-0.5 rounded-xl p-5">
+            <div class="text-3xl font-light text-slate-100 font-serif mb-1">200+</div>
             <div class="text-xs text-slate-100/40 font-light" x-text="t('Products in Portfolio', 'Продуктов в портфеле')"></div>
           </div>
-          <div class="stat-card rounded-xl p-5">
-            <div class="text-3xl font-light text-slate-100 serif mb-1">15+</div>
+          <div class="border border-white/10 bg-white/[0.04] backdrop-blur-[8px] transition-all duration-300 hover:bg-white/[0.08] hover:border-white/20 hover:-translate-y-0.5 rounded-xl p-5">
+            <div class="text-3xl font-light text-slate-100 font-serif mb-1">15+</div>
             <div class="text-xs text-slate-100/40 font-light" x-text="t('Years of Experience', 'Лет опыта')"></div>
           </div>
-          <div class="stat-card rounded-xl p-5">
-            <div class="text-3xl font-light text-slate-100 serif mb-1">GMP</div>
+          <div class="border border-white/10 bg-white/[0.04] backdrop-blur-[8px] transition-all duration-300 hover:bg-white/[0.08] hover:border-white/20 hover:-translate-y-0.5 rounded-xl p-5">
+            <div class="text-3xl font-light text-slate-100 font-serif mb-1">GMP</div>
             <div class="text-xs text-slate-100/40 font-light" x-text="t('Certified Facilities', 'Сертифицировано')"></div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- PRODUCTS -->
-  <section id="products" class="py-28" style="background: #e8ecf0;">
+  <section id="products" class="py-28 bg-[#e8ecf0]">
     <div class="max-w-7xl mx-auto px-6">
       <div class="mb-16">
-        <p class="section-label mb-4" x-text="t('Our Portfolio', 'Наш портфель')"></p>
-        <h2 class="text-4xl md:text-5xl font-light serif mb-4" style="color: var(--navy)"
+        <p class="text-[0.7rem] font-medium tracking-[0.25em] uppercase text-accent mb-4"
+           x-text="t('Our Portfolio', 'Наш портфель')"></p>
+        <h2 class="text-4xl md:text-5xl font-light font-serif text-navy mb-4"
             x-text="t('Product Categories', 'Категории продуктов')"></h2>
         <p class="text-gray-700 font-light max-w-xl"
            x-text="t('A comprehensive range of pharmaceutical products manufactured to the highest international standards.',
@@ -279,102 +73,104 @@ import Layout from '../layouts/Layout.astro'
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Solid Dosage -->
-        <a href="/solid-dosage" class="product-card rounded-2xl p-8 block" style="background: #dde2e8; text-decoration: none;">
-          <div class="product-icon mb-6">
-            <svg class="w-7 h-7" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <a href="/solid-dosage" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
+          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
             </svg>
           </div>
-          <h3 class="text-xl serif font-semibold mb-3" style="color: var(--navy)"
+          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
               x-text="t('Solid Dosage Forms', 'Твёрдые лекарственные формы')"></h3>
           <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
              x-text="t('Tablets, capsules, powders and coated dosage forms produced under strict GMP conditions.',
              'Таблетки, капсулы, порошки и покрытые оболочкой формы, произведённые в строгих условиях GMP.')">
           </p>
-          <span class="text-sm font-medium" style="color: var(--accent)"
+          <span class="text-sm font-medium text-accent"
              x-text="t('View Products →', 'Смотреть продукты →')"></span>
         </a>
 
         <!-- Injectables -->
-        <a href="/injectables" class="product-card rounded-2xl p-8 block" style="background: #dde2e8; text-decoration: none;">
-          <div class="product-icon mb-6">
-            <svg class="w-7 h-7" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <a href="/injectables" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
+          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
             </svg>
           </div>
-          <h3 class="text-xl serif font-semibold mb-3" style="color: var(--navy)"
+          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
               x-text="t('Injectable Solutions', 'Инъекционные растворы')"></h3>
           <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
              x-text="t('Sterile vials and ampoules for hospital and clinical use, meeting international pharmacopoeial standards.',
              'Стерильные флаконы и ампулы для больниц и клиник, соответствующие международным стандартам.')">
           </p>
-          <span class="text-sm font-medium" style="color: var(--accent)"
+          <span class="text-sm font-medium text-accent"
              x-text="t('View Products →', 'Смотреть продукты →')"></span>
         </a>
 
         <!-- Antibiotics -->
-        <a href="/antibiotics" class="product-card rounded-2xl p-8 block" style="background: #dde2e8; text-decoration: none;">
-          <div class="product-icon mb-6">
-            <svg class="w-7 h-7" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <a href="/antibiotics" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
+          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
             </svg>
           </div>
-          <h3 class="text-xl serif font-semibold mb-3" style="color: var(--navy)"
+          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
               x-text="t('Antibiotics', 'Антибиотики')"></h3>
           <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
              x-text="t('Broad and narrow-spectrum antibiotics for bacterial infections, available in multiple dosage forms.',
              'Антибиотики широкого и узкого спектра для лечения бактериальных инфекций в различных формах.')">
           </p>
-          <span class="text-sm font-medium" style="color: var(--accent)"
+          <span class="text-sm font-medium text-accent"
              x-text="t('View Products →', 'Смотреть продукты →')"></span>
         </a>
 
         <!-- Neurology -->
-        <a href="/neurology" class="product-card rounded-2xl p-8 block" style="background: #dde2e8; text-decoration: none;">
-          <div class="product-icon mb-6">
-            <svg class="w-7 h-7" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <a href="/neurology" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
+          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
             </svg>
           </div>
-          <h3 class="text-xl serif font-semibold mb-3" style="color: var(--navy)"
+          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
               x-text="t('Neurology & CNS', 'Неврология и ЦНС')"></h3>
           <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
              x-text="t('Specialized neurological and CNS treatments with proven efficacy and controlled-release formulations.',
              'Специализированные препараты для неврологии и ЦНС с доказанной эффективностью.')">
           </p>
-          <span class="text-sm font-medium" style="color: var(--accent)"
+          <span class="text-sm font-medium text-accent"
              x-text="t('View Products →', 'Смотреть продукты →')"></span>
         </a>
 
         <!-- OTC -->
-        <a href="/otc" class="product-card rounded-2xl p-8 block" style="background: #dde2e8; text-decoration: none;">
-          <div class="product-icon mb-6">
-            <svg class="w-7 h-7" style="color: var(--navy)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <a href="/otc" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
+          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
             </svg>
           </div>
-          <h3 class="text-xl serif font-semibold mb-3" style="color: var(--navy)"
+          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
               x-text="t('OTC & Consumer Health', 'OTC препараты')"></h3>
           <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
              x-text="t('Over-the-counter products for pharmacy chains — vitamins, analgesics, and wellness supplements.',
              'Безрецептурные препараты для аптечных сетей — витамины, анальгетики и добавки.')">
           </p>
-          <span class="text-sm font-medium" style="color: var(--accent)"
+          <span class="text-sm font-medium text-accent"
              x-text="t('View Products →', 'Смотреть продукты →')"></span>
         </a>
 
         <!-- CTA card -->
-        <div class="rounded-2xl p-8 flex flex-col justify-between" style="background: linear-gradient(135deg, var(--navy), var(--navy-light));">
+        <div class="rounded-2xl p-8 flex flex-col justify-between bg-gradient-to-br from-navy to-navy-light">
           <div>
-            <p class="text-slate-100/50 text-xs uppercase tracking-widest mb-4" x-text="t('Partnership', 'Партнёрство')"></p>
-            <h3 class="text-xl serif font-semibold text-slate-100 mb-3"
+            <p class="text-slate-100/50 text-xs uppercase tracking-widest mb-4"
+               x-text="t('Partnership', 'Партнёрство')"></p>
+            <h3 class="text-xl font-serif font-semibold text-slate-100 mb-3"
                 x-text="t('Looking for a reliable supplier?', 'Ищете надёжного поставщика?')"></h3>
             <p class="text-slate-100/60 text-sm font-light leading-relaxed"
                x-text="t(`We work with hospitals, clinic networks, and pharmacy distributors. Let's discuss your needs.`,
                `Мы работаем с больницами, клиническими сетями и дистрибьюторами.`)">
             </p>
           </div>
-          <a href="#contact" class="mt-8 inline-block text-center btn-outline text-sm"
+          <a href="#contact"
+             class="mt-8 inline-block text-center border border-white/30 text-white py-[0.9rem] px-10 rounded-lg font-normal text-sm tracking-[0.05em] bg-transparent transition-all duration-300 hover:bg-white/[0.08] hover:border-white/50 no-underline"
              x-text="t('Contact Our Team', 'Связаться с нами')"></a>
         </div>
 
@@ -388,8 +184,9 @@ import Layout from '../layouts/Layout.astro'
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
         <div>
-          <p class="section-label mb-4" x-text="t('About Onyx', 'Об Onyx')"></p>
-          <h2 class="text-4xl md:text-5xl font-light serif mb-6" style="color: var(--navy)"
+          <p class="text-[0.7rem] font-medium tracking-[0.25em] uppercase text-accent mb-4"
+             x-text="t('About Onyx', 'Об Onyx')"></p>
+          <h2 class="text-4xl md:text-5xl font-light font-serif text-navy mb-6"
               x-text="t('Built on Science. Driven by Purpose.', 'Основано на науке. Движимо целью.')"></h2>
           <p class="text-gray-700 font-light leading-relaxed mb-6"
              x-text="t('Onyx Corporation is a pharmaceutical manufacturing company dedicated to producing high-quality medicines for healthcare providers across the region. With over 15 years in the industry, we combine scientific rigor with operational excellence.',
@@ -401,48 +198,49 @@ import Layout from '../layouts/Layout.astro'
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="value-item">
-              <h4 class="font-medium text-sm mb-1" style="color: var(--navy)" x-text="t('Quality Assurance', 'Гарантия качества')"></h4>
+            <div class="border-l-2 border-navy pl-5">
+              <h4 class="font-medium text-sm mb-1 text-navy" x-text="t('Quality Assurance', 'Гарантия качества')"></h4>
               <p class="text-gray-600 text-sm font-light" x-text="t('Rigorous testing at every production stage.', 'Строгий контроль на каждом этапе.')"></p>
             </div>
-            <div class="value-item">
-              <h4 class="font-medium text-sm mb-1" style="color: var(--navy)" x-text="t('Regulatory Compliance', 'Соответствие нормам')"></h4>
+            <div class="border-l-2 border-navy pl-5">
+              <h4 class="font-medium text-sm mb-1 text-navy" x-text="t('Regulatory Compliance', 'Соответствие нормам')"></h4>
               <p class="text-gray-600 text-sm font-light" x-text="t('Fully registered and compliant with local authorities.', 'Полное соответствие требованиям регуляторов.')"></p>
             </div>
-            <div class="value-item">
-              <h4 class="font-medium text-sm mb-1" style="color: var(--navy)" x-text="t('Reliable Supply Chain', 'Надёжные поставки')"></h4>
+            <div class="border-l-2 border-navy pl-5">
+              <h4 class="font-medium text-sm mb-1 text-navy" x-text="t('Reliable Supply Chain', 'Надёжные поставки')"></h4>
               <p class="text-gray-600 text-sm font-light" x-text="t('On-time delivery to pharmacies and hospitals.', 'Своевременные поставки в аптеки и больницы.')"></p>
             </div>
-            <div class="value-item">
-              <h4 class="font-medium text-sm mb-1" style="color: var(--navy)" x-text="t('Expert Support', 'Экспертная поддержка')"></h4>
+            <div class="border-l-2 border-navy pl-5">
+              <h4 class="font-medium text-sm mb-1 text-navy" x-text="t('Expert Support', 'Экспертная поддержка')"></h4>
               <p class="text-gray-600 text-sm font-light" x-text="t('Dedicated account managers and medical liaisons.', 'Персональные менеджеры и медицинские представители.')"></p>
             </div>
           </div>
         </div>
 
         <div class="relative">
-          <div class="rounded-3xl p-10 relative overflow-hidden" style="background: linear-gradient(135deg, var(--navy-dark), var(--navy-light));">
+          <div class="rounded-3xl p-10 relative overflow-hidden bg-gradient-to-br from-navy-dark to-navy-light">
+            <!-- Dot pattern — must stay inline, Tailwind cannot express positioned radial gradients -->
             <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 30% 70%, white 1px, transparent 1px); background-size: 24px 24px;"></div>
             <div class="relative z-10 grid grid-cols-2 gap-6">
               <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div class="text-4xl serif font-light text-slate-100 mb-2">200+</div>
+                <div class="text-4xl font-serif font-light text-slate-100 mb-2">200+</div>
                 <div class="text-slate-100/50 text-xs uppercase tracking-wider" x-text="t('SKUs Available', 'Позиций в наличии')"></div>
               </div>
               <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div class="text-4xl serif font-light text-slate-100 mb-2">15+</div>
+                <div class="text-4xl font-serif font-light text-slate-100 mb-2">15+</div>
                 <div class="text-slate-100/50 text-xs uppercase tracking-wider" x-text="t('Years Active', 'Лет на рынке')"></div>
               </div>
               <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div class="text-4xl serif font-light text-slate-100 mb-2">50+</div>
+                <div class="text-4xl font-serif font-light text-slate-100 mb-2">50+</div>
                 <div class="text-slate-100/50 text-xs uppercase tracking-wider" x-text="t('Partner Hospitals', 'Больниц-партнёров')"></div>
               </div>
               <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div class="text-4xl serif font-light text-slate-100 mb-2">GMP</div>
+                <div class="text-4xl font-serif font-light text-slate-100 mb-2">GMP</div>
                 <div class="text-slate-100/50 text-xs uppercase tracking-wider" x-text="t('Certified', 'Сертифицировано')"></div>
               </div>
             </div>
             <div class="relative z-10 mt-6 bg-white/5 rounded-2xl p-6 border border-white/10">
-              <p class="text-slate-100/70 text-sm font-light italic leading-relaxed serif"
+              <p class="text-slate-100/70 text-sm font-light italic leading-relaxed font-serif"
                  x-text="t('Our mission is to make quality pharmaceutical products accessible to every healthcare provider, every time.',
                  'Наша цель — сделать качественные фармацевтические продукты доступными для каждого медицинского учреждения.')">
               </p>
@@ -459,8 +257,9 @@ import Layout from '../layouts/Layout.astro'
     <div class="max-w-7xl mx-auto px-6 relative z-10">
       <div class="grid grid-cols-1 gap-20">
         <div>
-          <p class="section-label mb-4" x-text="t('Get In Touch', 'Связаться')"></p>
-          <h2 class="text-4xl md:text-5xl font-light serif text-slate-100 mb-6"
+          <p class="text-[0.7rem] font-medium tracking-[0.25em] uppercase text-accent mb-4"
+             x-text="t('Get In Touch', 'Связаться')"></p>
+          <h2 class="text-4xl md:text-5xl font-light font-serif text-slate-100 mb-6"
               x-text="t('Partner With Onyx', 'Станьте партнёром Onyx')"></h2>
           <p class="text-slate-100/50 font-light leading-relaxed mb-10"
              x-text="t(`Whether you represent a hospital procurement team, pharmacy chain, or distribution network — we'd like to hear from you.`,
