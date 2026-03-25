@@ -65,7 +65,7 @@ export const product = defineType({
           { title: 'Injectables', value: 'injectables' },
           { title: 'Solid Dosage', value: 'solid-dosage' },
           { title: 'Antibiotics', value: 'antibiotics' },
-          { title: 'Neurology & CNS', value: 'neurology' },
+          { title: 'Liquids & Externals', value: 'liquids-externals' },
           { title: 'OTC & Consumer Health', value: 'otc' },
         ],
       },

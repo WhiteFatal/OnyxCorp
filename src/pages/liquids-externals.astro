@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Liquids & Externals — Onyx Corporation">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <a href="/#products" class="inline-flex items-center gap-2 text-white/50 text-xs hover:text-white transition-colors mb-6 no-underline">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+        <span x-text="t('All Categories', 'Все категории')"></span>
+      </a>
+      <p class="text-[0.7rem] font-medium tracking-[0.25em] uppercase text-accent mb-4" x-text="t('Product Catalogue', 'Каталог продуктов')"></p>
+      <h1 class="text-5xl md:text-6xl font-light text-slate-100 font-serif mb-4" x-text="t('Liquids & Externals', 'Жидкости и внешние препараты')"></h1>
+      <p class="text-slate-100/50 font-light max-w-xl" x-text="t('Syrups, Suspensions, Eye/Ear/Nose Drops, Sprays, and Ointments.', 'Сиропы, суспензии, капли для глаз/уха/носа, спреи и мази.')"></p>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <!-- Sertraline -->
+        <div class="product-card">
+          <div class="product-image-placeholder bg-[#fff8e1]">
+            <div class="flex flex-col items-center justify-center gap-2 p-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
+                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Sertraline 50mg', 'Сертралин 50мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('SSRI for depression, panic disorder, OCD, and post-traumatic stress disorder.', 'СИОЗС для лечения депрессии, панических расстройств, ОКР и ПТСР.')"></p>
+          </div>
+        </div>
+
+        <!-- Gabapentin -->
+        <div class="product-card">
+          <div class="product-image-placeholder bg-[#fff8e1]">
+            <div class="flex flex-col items-center justify-center gap-2 p-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
+                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Capsule', 'Капсула')"></p>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Gabapentin 300mg', 'Габапентин 300мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Anticonvulsant for epilepsy, neuropathic pain, and restless legs syndrome.', 'Противосудорожный препарат при эпилепсии, невропатической боли и СБН.')"></p>
+          </div>
+        </div>
+
+        <!-- Carbamazepine -->
+        <div class="product-card">
+          <div class="product-image-placeholder bg-[#fce8e8]">
+            <div class="flex flex-col items-center justify-center gap-2 p-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
+                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Carbamazepine 200mg', 'Карбамазепин 200мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Anticonvulsant and mood stabilizer for epilepsy, trigeminal neuralgia, and bipolar disorder.', 'Противосудорожный стабилизатор настроения при эпилепсии и невралгии тройничного нерва.')"></p>
+          </div>
+        </div>
+
+        <!-- Levodopa/Carbidopa -->
+        <div class="product-card">
+          <div class="product-image-placeholder bg-[#e8f0fe]">
+            <div class="flex flex-col items-center justify-center gap-2 p-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
+                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Levodopa/Carbidopa 250mg', 'Леводопа/Карбидопа 250мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Gold-standard treatment for Parkinson disease symptoms including tremor and rigidity.', 'Золотой стандарт лечения симптомов болезни Паркинсона — тремора и ригидности.')"></p>
+          </div>
+        </div>
+
+        <!-- Diazepam -->
+        <div class="product-card">
+          <div class="product-image-placeholder bg-[#e8f8f0]">
+            <div class="flex flex-col items-center justify-center gap-2 p-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
+                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Diazepam 5mg', 'Диазепам 5мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Benzodiazepine for anxiety disorders, muscle spasms, alcohol withdrawal and seizures.', 'Бензодиазепин при тревожных расстройствах, мышечных спазмах и судорогах.')"></p>
+          </div>
+        </div>
+
+        <!-- Donepezil -->
+        <div class="product-card">
+          <div class="product-image-placeholder bg-[#fef3e2]">
+            <div class="flex flex-col items-center justify-center gap-2 p-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
+                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Donepezil 10mg', 'Донепезил 10мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Cholinesterase inhibitor for Alzheimer disease. Improves cognitive function and daily activities.', 'Ингибитор холинэстеразы при болезни Альцгеймера. Улучшает когнитивные функции.')"></p>
+          </div>
+        </div>
+
+        <!-- Pregabalin -->
+        <div class="product-card">
+          <div class="product-image-placeholder bg-[#f0e8fe]">
+            <div class="flex flex-col items-center justify-center gap-2 p-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
+                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Capsule', 'Капсула')"></p>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Pregabalin 75mg', 'Прегабалин 75мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Anticonvulsant for neuropathic pain, fibromyalgia, generalized anxiety disorder and epilepsy.', 'Противосудорожный препарат при невропатической боли, фибромиалгии и тревожных расстройствах.')"></p>
+          </div>
+        </div>
+
+        <!-- Amitriptyline -->
+        <div class="product-card">
+          <div class="product-image-placeholder bg-[#fce8e8]">
+            <div class="flex flex-col items-center justify-center gap-2 p-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
+                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                </svg>
+              </div>
+              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Amitriptyline 25mg', 'Амитриптилин 25мг')"></h3>
+            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Tricyclic antidepressant for depression, chronic pain, migraine prevention and insomnia.', 'Трициклический антидепрессант при депрессии, хронической боли и профилактике мигрени.')"></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
