@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { getProductsByCategory, imageUrl } from '../lib/sanity.js'
+
+const products = await getProductsByCategory('antibiotics')
 ---
 
 <Layout title="Antibiotics — Onyx Corporation">
@@ -24,149 +27,35 @@ import Layout from '../layouts/Layout.astro'
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-        <!-- Amoxicillin -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#e8f0fe]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Capsule', 'Капсула')"></p>
+        {products.map((product) => (
+          <div class="product-card">
+            <div class="product-image-placeholder" style="background: #e8f0fe">
+              {product.photo && (
+                <img
+                  src={imageUrl(product.photo).url()}
+                  alt={product.nameEn}
+                />
+              )}
+            </div>
+            <div class="p-5">
+              <h2
+                class="text-xl font-serif font-bold mb-1 text-navy-dark"
+                x-data={`{nameEn: ${JSON.stringify(product.nameEn)}, nameRu: ${JSON.stringify(product.nameRu)}}`}
+                x-text="t(nameEn, nameRu)"
+              ></h2>
+              <h3
+                class="text-sm font-serif font-semibold mb-2 text-accent"
+                x-data={`{enVal: ${JSON.stringify(product.activeIngredientEn)}, ruVal: ${JSON.stringify(product.activeIngredientRu)}}`}
+                x-text="t(enVal, ruVal)"
+              ></h3>
+              <p
+                class="text-gray-700 text-sm font-light leading-relaxed"
+                x-data={`{enVal: ${JSON.stringify(product.descriptionEn)}, ruVal: ${JSON.stringify(product.descriptionRu)}}`}
+                x-text="t(enVal, ruVal)"
+              ></p>
             </div>
           </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Amoxicillin 500mg', 'Амоксициллин 500мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Broad-spectrum penicillin for bacterial infections of the ear, nose, throat, and urinary tract.', 'Пенициллин широкого спектра для инфекций уха, горла, носа и мочевыводящих путей.')"></p>
-          </div>
-        </div>
-
-        <!-- Ciprofloxacin -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#e8f0fe]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Ciprofloxacin 500mg', 'Ципрофлоксацин 500мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Fluoroquinolone for gram-negative and gram-positive infections, respiratory and urinary tract.', 'Фторхинолон для лечения грамотрицательных и грамположительных инфекций.')"></p>
-          </div>
-        </div>
-
-        <!-- Ceftriaxone -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#fce8e8]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Vial', 'Флакон')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Ceftriaxone 1g', 'Цефтриаксон 1г')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Third-generation cephalosporin vial for pneumonia, meningitis, and serious hospital infections.', 'Цефалоспорин III поколения для пневмонии, менингита и серьёзных госпитальных инфекций.')"></p>
-          </div>
-        </div>
-
-        <!-- Metronidazole -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#e8f8f0]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Metronidazole 500mg', 'Метронидазол 500мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Antibiotic for anaerobic bacterial infections, H. pylori eradication, and parasitic conditions.', 'Антибиотик для анаэробных инфекций и эрадикации H. pylori.')"></p>
-          </div>
-        </div>
-
-        <!-- Azithromycin -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#fff8e1]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Azithromycin 500mg', 'Азитромицин 500мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Macrolide antibiotic for respiratory tract infections, skin infections, and STDs.', 'Макролидный антибиотик для инфекций дыхательных путей и кожи.')"></p>
-          </div>
-        </div>
-
-        <!-- Doxycycline -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#fef3e2]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Capsule', 'Капсула')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Doxycycline 100mg', 'Доксициклин 100мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Tetracycline antibiotic for respiratory, skin and urogenital infections and Lyme disease.', 'Тетрациклиновый антибиотик для респираторных, кожных и урогенитальных инфекций.')"></p>
-          </div>
-        </div>
-
-        <!-- Clarithromycin -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#f0e8fe]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Clarithromycin 500mg', 'Кларитромицин 500мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Macrolide antibiotic for respiratory infections and H. pylori eradication therapy.', 'Макролидный антибиотик для инфекций дыхательных путей и эрадикационной терапии.')"></p>
-          </div>
-        </div>
-
-        <!-- Amoxicillin/Clavulanate -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#e8f0fe]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Amoxicillin/Clavulanate 875mg', 'Амоксициллин/Клавуланат 875мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Beta-lactamase resistant combination for skin, respiratory, and urinary tract infections.', 'Комбинация с устойчивостью к бета-лактамазам для кожных и респираторных инфекций.')"></p>
-          </div>
-        </div>
+        ))}
 
       </div>
     </div>

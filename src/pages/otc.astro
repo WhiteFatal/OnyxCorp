@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { getProductsByCategory, imageUrl } from '../lib/sanity.js'
+
+const products = await getProductsByCategory('antibiotics')
 ---
 
 <Layout title="OTC & Consumer Health — Onyx Corporation">
@@ -24,149 +27,35 @@ import Layout from '../layouts/Layout.astro'
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-        <!-- Vitamin D3 -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#fffde7]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
+        {products.map((product) => (
+          <div class="product-card">
+            <div class="product-image-placeholder" style="background: #e8f0fe">
+              {product.photo && (
+                <img
+                  src={imageUrl(product.photo).url()}
+                  alt={product.nameEn}
+                />
+              )}
+            </div>
+            <div class="p-5">
+              <h2
+                class="text-xl font-serif font-bold mb-1 text-navy-dark"
+                x-data={`{nameEn: ${JSON.stringify(product.nameEn)}, nameRu: ${JSON.stringify(product.nameRu)}}`}
+                x-text="t(nameEn, nameRu)"
+              ></h2>
+              <h3
+                class="text-sm font-serif font-semibold mb-2 text-accent"
+                x-data={`{enVal: ${JSON.stringify(product.activeIngredientEn)}, ruVal: ${JSON.stringify(product.activeIngredientRu)}}`}
+                x-text="t(enVal, ruVal)"
+              ></h3>
+              <p
+                class="text-gray-700 text-sm font-light leading-relaxed"
+                x-data={`{enVal: ${JSON.stringify(product.descriptionEn)}, ruVal: ${JSON.stringify(product.descriptionRu)}}`}
+                x-text="t(enVal, ruVal)"
+              ></p>
             </div>
           </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Vitamin D3 1000IU', 'Витамин D3 1000МЕ')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Cholecalciferol supplement for bone health, immune function and calcium absorption.', 'Холекальциферол для здоровья костей, иммунитета и усвоения кальция.')"></p>
-          </div>
-        </div>
-
-        <!-- Vitamin C -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#fff8e1]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Vitamin C 500mg', 'Витамин C 500мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Ascorbic acid tablet for immune support, antioxidant protection and collagen synthesis.', 'Аскорбиновая кислота для поддержки иммунитета, антиоксидантной защиты и синтеза коллагена.')"></p>
-          </div>
-        </div>
-
-        <!-- Ibuprofen -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#fce8e8]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Ibuprofen 200mg', 'Ибупрофен 200мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('OTC NSAID for mild to moderate pain, headache, fever and menstrual pain relief.', 'НПВП без рецепта для лёгкой и умеренной боли, головной боли и жара.')"></p>
-          </div>
-        </div>
-
-        <!-- Loratadine -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#e8f8f0]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Loratadine 10mg', 'Лоратадин 10мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Non-drowsy antihistamine for allergic rhinitis, urticaria and seasonal allergy symptoms.', 'Антигистаминный препарат без седации при аллергическом рините и крапивнице.')"></p>
-          </div>
-        </div>
-
-        <!-- Omega-3 -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#e8f0fe]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Capsule', 'Капсула')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Omega-3 1000mg', 'Омега-3 1000мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Fish oil capsule for cardiovascular health, brain function and anti-inflammatory support.', 'Капсула рыбьего жира для здоровья сердца, мозга и противовоспалительной поддержки.')"></p>
-          </div>
-        </div>
-
-        <!-- Magnesium B6 -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#f0e8fe]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Magnesium B6', 'Магний B6')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Combination supplement for nervous system support, muscle relaxation and stress reduction.', 'Комплексная добавка для поддержки нервной системы, расслабления мышц и снижения стресса.')"></p>
-          </div>
-        </div>
-
-        <!-- Activated Charcoal -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#e8ecf0]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Activated Charcoal 250mg', 'Активированный уголь 250мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Adsorbent tablet for acute poisoning, drug overdose and gastrointestinal detoxification.', 'Таблетка адсорбента при острых отравлениях, передозировке и детоксикации ЖКТ.')"></p>
-          </div>
-        </div>
-
-        <!-- Zinc -->
-        <div class="product-card">
-          <div class="product-image-placeholder bg-[#fef3e2]">
-            <div class="flex flex-col items-center justify-center gap-2 p-6">
-              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-navy/10">
-                <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                </svg>
-              </div>
-              <p class="text-xs font-medium tracking-wider uppercase text-navy/50" x-text="t('Tablet', 'Таблетка')"></p>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-serif font-semibold mb-2 text-navy" x-text="t('Zinc 15mg', 'Цинк 15мг')"></h3>
-            <p class="text-gray-700 text-sm font-light leading-relaxed" x-text="t('Essential mineral supplement for immune function, wound healing and reproductive health.', 'Незаменимый минерал для иммунитета, заживления ран и репродуктивного здоровья.')"></p>
-          </div>
-        </div>
+        ))}
 
       </div>
     </div>
