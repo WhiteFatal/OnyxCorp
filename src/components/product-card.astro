@@ -1,0 +1,40 @@
+---
+const { products, imageUrl } = Astro.props
+---
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        {products.map((product) => (
+            <div class="product-card">
+            <div class="product-image-placeholder" style="background: #e8f0fe">
+                {product.photo && (
+                <img
+                    src={imageUrl(product.photo).url()}
+                    alt={product.nameEn}
+                />
+                )}
+            </div>
+            <div class="p-5">
+                <h2
+                class="text-xl font-serif font-bold mb-1 text-navy-dark"
+                x-data={`{nameEn: ${JSON.stringify(product.nameEn)}, nameRu: ${JSON.stringify(product.nameRu)}}`}
+                x-text="t(nameEn, nameRu)"
+                ></h2>
+                <h3
+                class="text-sm font-serif font-semibold mb-2 text-accent"
+                x-data={`{enVal: ${JSON.stringify(product.activeIngredientEn)}, ruVal: ${JSON.stringify(product.activeIngredientRu)}}`}
+                x-text="t(enVal, ruVal)"
+                ></h3>
+                <p
+                class="text-gray-700 text-sm font-light leading-relaxed"
+                x-data={`{enVal: ${JSON.stringify(product.descriptionEn)}, ruVal: ${JSON.stringify(product.descriptionRu)}}`}
+                x-text="t(enVal, ruVal)"
+                ></p>
+            </div>
+            </div>
+        ))}
+
+        </div>
+    </div>
+</section>

@@ -1,4 +1,6 @@
 ---
+import ProductCard from '../components/product-card.astro'
+import ProductsHero from '../components/products-hero.astro'
 import Layout from '../layouts/Layout.astro'
 import { getProductsByCategory, imageUrl } from '../lib/sanity.js'
 
@@ -8,57 +10,9 @@ const products = await getProductsByCategory('injectables')
 <Layout title="Injectable Solutions — Onyx Corporation">
 
   <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <a href="/#products" class="inline-flex items-center gap-2 text-white/50 text-xs hover:text-white transition-colors mb-6 no-underline">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/>
-        </svg>
-        <span x-text="t('All Categories', 'Все категории')"></span>
-      </a>
-      <p class="text-[0.7rem] font-medium tracking-[0.25em] uppercase text-accent mb-4" x-text="t('Product Catalogue', 'Каталог продуктов')"></p>
-      <h1 class="text-5xl md:text-6xl font-light text-slate-100 font-serif mb-4" x-text="t('Injectable Solutions', 'Инъекционные растворы')"></h1>
-      <p class="text-slate-100/50 font-light max-w-xl" x-text="t('Sterile vials and ampoules for hospital and clinical use.', 'Стерильные флаконы и ампулы для больниц и клиник.')"></p>
-    </div>
-  </section>
+  <ProductsHero />
 
   <!-- PRODUCTS GRID -->
-  <section class="py-16">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-
-        {products.map((product) => (
-          <div class="product-card">
-            <div class="product-image-placeholder" style="background: #e8f0fe">
-              {product.photo && (
-                <img
-                  src={imageUrl(product.photo).url()}
-                  alt={product.nameEn}
-                />
-              )}
-            </div>
-            <div class="p-5">
-              <h2
-                class="text-xl font-serif font-bold mb-1 text-navy-dark"
-                x-data={`{nameEn: ${JSON.stringify(product.nameEn)}, nameRu: ${JSON.stringify(product.nameRu)}}`}
-                x-text="t(nameEn, nameRu)"
-              ></h2>
-              <h3
-                class="text-sm font-serif font-semibold mb-2 text-accent"
-                x-data={`{enVal: ${JSON.stringify(product.activeIngredientEn)}, ruVal: ${JSON.stringify(product.activeIngredientRu)}}`}
-                x-text="t(enVal, ruVal)"
-              ></h3>
-              <p
-                class="text-gray-700 text-sm font-light leading-relaxed"
-                x-data={`{enVal: ${JSON.stringify(product.descriptionEn)}, ruVal: ${JSON.stringify(product.descriptionRu)}}`}
-                x-text="t(enVal, ruVal)"
-              ></p>
-            </div>
-          </div>
-        ))}
-
-      </div>
-    </div>
-  </section>
+  <ProductCard products={products} imageUrl={imageUrl} /> 
 
 </Layout>
