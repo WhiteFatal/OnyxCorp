@@ -1,0 +1,28 @@
+---
+import Svg1 from '../icons/category-icon1.astro';
+import Svg2 from '../icons/category-icon2.astro';
+import Svg3 from '../icons/category-icon3.astro';
+import Svg4 from '../icons/category-icon4.astro';
+import Svg5 from '../icons/category-icon5.astro';
+
+const { category, icon, name, description } = Astro.props
+---
+
+<a href=`/${category}` class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
+    <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">   
+    {
+        icon === '1' ? <Svg1 /> : 
+        icon === '2' ? <Svg2 /> : 
+        icon === '3' ? <Svg3 /> : 
+        icon === '4' ? <Svg4 /> : 
+        icon === '5' ? <Svg5 /> : <Svg1 />
+    }
+    </div>
+    <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
+        x-text={name}></h3>
+    <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
+        x-text={description}>
+    </p>
+    <span class="text-sm font-medium text-accent"
+        x-text="t('View Products →', 'Смотреть продукты →')"></span>
+</a>

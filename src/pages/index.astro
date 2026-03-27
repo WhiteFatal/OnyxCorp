@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import CategoryCard from '../components/category-card.astro';
 ---
 
 <Layout title="Onyx Corporation — Pharmaceutical Manufacturing">
@@ -73,90 +74,45 @@ import Layout from '../layouts/Layout.astro'
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Solid Dosage -->
-        <a href="/solid-dosage" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
-          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
-              x-text="t('Solid Dosage Forms', 'Твёрдые лекарственные формы')"></h3>
-          <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
-             x-text="t('Tablets, capsules, powders and coated dosage forms produced under strict GMP conditions.',
-             'Таблетки, капсулы, порошки и покрытые оболочкой формы, произведённые в строгих условиях GMP.')">
-          </p>
-          <span class="text-sm font-medium text-accent"
-             x-text="t('View Products →', 'Смотреть продукты →')"></span>
-        </a>
-
+        <CategoryCard 
+          category="solid-dosage"
+          icon="1"
+          name="t('Solid Dosage Forms', 'Твёрдые лекарственные формы')"
+          description="t('Tablets, capsules, powders and coated dosage forms produced under strict GMP conditions.',
+             'Таблетки, капсулы, порошки и покрытые оболочкой формы, произведённые в строгих условиях GMP.')"
+        /> 
         <!-- Injectables -->
-        <a href="/injectables" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
-          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
-              x-text="t('Injectable Solutions', 'Инъекционные растворы')"></h3>
-          <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
-             x-text="t('Sterile vials and ampoules for hospital and clinical use, meeting international pharmacopoeial standards.',
-             'Стерильные флаконы и ампулы для больниц и клиник, соответствующие международным стандартам.')">
-          </p>
-          <span class="text-sm font-medium text-accent"
-             x-text="t('View Products →', 'Смотреть продукты →')"></span>
-        </a>
-
+        <CategoryCard 
+          category="injectables"
+          icon="2"
+          name="t('Injectable Solutions', 'Инъекционные растворы')"
+          description="t('Sterile vials and ampoules for hospital and clinical use, meeting international pharmacopoeial standards.',
+              'Стерильные флаконы и ампулы для больниц и клиник, соответствующие международным стандартам.')"
+        />
         <!-- Antibiotics -->
-        <a href="/antibiotics" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
-          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
-              x-text="t('Antibiotics', 'Антибиотики')"></h3>
-          <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
-             x-text="t('Broad and narrow-spectrum antibiotics for bacterial infections, available in multiple dosage forms.',
-             'Антибиотики широкого и узкого спектра для лечения бактериальных инфекций в различных формах.')">
-          </p>
-          <span class="text-sm font-medium text-accent"
-             x-text="t('View Products →', 'Смотреть продукты →')"></span>
-        </a>
-
+         <CategoryCard 
+          category="antibiotics"
+          icon="3"
+          name="t('Antibiotics', 'Антибиотики')"
+          description="t('Broad and narrow-spectrum antibiotics for bacterial infections, available in multiple dosage forms.',
+             'Антибиотики широкого и узкого спектра для лечения бактериальных инфекций в различных формах.')"
+        />
         <!-- Liquids & Externals -->
-        <a href="/liquids-externals" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
-          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
-              x-text="t('Liquids & Externals', 'Жидкости и внешние препараты')"></h3>
-          <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
-             x-text="t('Syrups, Suspensions, Eye/Ear/Nose Drops, Sprays, and Ointments.',
-             'Сиропы, суспензии, капли для глаз/уха/носа, спреи и мази.')">
-          </p>
-          <span class="text-sm font-medium text-accent"
-             x-text="t('View Products →', 'Смотреть продукты →')"></span>
-        </a>
-
+         <CategoryCard 
+          category="liquids-externals"
+          icon="4"
+          name="t('Liquids & Externals', 'Жидкости и внешние препараты')"
+          description="t('Syrups, Suspensions, Eye/Ear/Nose Drops, Sprays, and Ointments.',
+             'Сиропы, суспензии, капли для глаз/уха/носа, спреи и мази.')"
+        />
         <!-- OTC -->
-        <a href="/otc" class="product-card rounded-2xl p-8 block bg-[#dde2e8] no-underline">
-          <div class="w-14 h-14 bg-gradient-to-br from-[#eef2ff] to-[#dbeafe] rounded-[14px] flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif font-semibold mb-3 text-navy"
-              x-text="t('OTC & Consumer Health', 'OTC препараты')"></h3>
-          <p class="text-gray-700 text-sm font-light leading-relaxed mb-5"
-             x-text="t('Over-the-counter products for pharmacy chains — vitamins, analgesics, and wellness supplements.',
-             'Безрецептурные препараты для аптечных сетей — витамины, анальгетики и добавки.')">
-          </p>
-          <span class="text-sm font-medium text-accent"
-             x-text="t('View Products →', 'Смотреть продукты →')"></span>
-        </a>
-
+        <CategoryCard 
+          category="otc"
+          icon="5"
+          name="t('OTC & Consumer Health', 'OTC препараты')"
+          description="t('Over-the-counter products for pharmacy chains — vitamins, analgesics, and wellness supplements.',
+             'Безрецептурные препараты для аптечных сетей — витамины, анальгетики и добавки.')"
+        />
         <!-- CTA card -->
         <div class="rounded-2xl p-8 flex flex-col justify-between bg-gradient-to-br from-navy to-navy-light">
           <div>
